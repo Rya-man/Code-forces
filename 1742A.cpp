@@ -13,8 +13,9 @@ int main()
         cin>>a[0]>>a[1]>>a[2];
         sort(a,a+3);
         if(a[0]+a[1]==a[2])
-        cout<<"Yes";
+        cout<<"YES"<<endl;
         else
-        cout<<"No";
+        cout<<"No"<<endl;
+        
     }
 }
