@@ -2,16 +2,17 @@
 using namespace std;
 int main()
 {
+    int count =0,ans[3],n;
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    int n,count;
     cin>>n;
-    for(count = 0;n!=0;)
+    for(int i=0;i<n;i++)
     {
-        if(n%10==7 or n%10 ==4)
+        cin>>ans[0]>>ans[1]>>ans[2];
+        if((ans[0]+ans[1]+ans[2])>=2)
         count++;
-        n/=10;
     }
-    (count ==7 or count==4)?cout<<"YES"<<endl:cout<<"NO";
+    cout<<count;
+
 }
