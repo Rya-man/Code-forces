@@ -6,14 +6,14 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
     int sec,x =0;
-    char* a;
+    char a[3];
     cin>>sec;
     for(int i=0;i<sec;i++)
     {
-        cin>>a;
-        if(!strcmp(a,"++x") || !strcmp(a,"x++"))
+        cin>>a[0]>>a[1]>>a[2];
+        if(a[1]=='+')
         x++;
-        if(!strcmp(a,"--x") || !strcmp(a,"x--"))
+        if(a[1]=='-')
         x--;
     }
     cout<<x;
