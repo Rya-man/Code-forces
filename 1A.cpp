@@ -5,11 +5,8 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    int n;
-    cin>>n;
-    if(n%5==0)
-    cout<<n/5;
-    else
-    cout<<n/5 + 1;
-
+    int n,m,a;
+    cin>>n>>m>>a;
+    int res = (n*m)/(a*a);
+    (n*m)%(a*a)==0?cout<<res:cout<<res+1;
 }
