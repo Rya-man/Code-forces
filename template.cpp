@@ -42,7 +42,7 @@ ll mod(ll a, ll m) {
 }
 
 // Power function with modulo
-ll power(ll x, ll y, ll m) {
+ll power(ll x, ll y, ll m){
     if (y == 0)
         return 1;
     ll p = power(x, y / 2, m) % m;
