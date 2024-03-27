@@ -6,6 +6,7 @@ using namespace std;
 
 // Typedefs
 #define ll long long
+#define endl "\n"
 #define vi vector<int>
 #define pii pair<int, int>
 
@@ -14,8 +15,9 @@ const int MOD = 1e9 + 7;
 const int INF = INT_MAX;
 
 // Macros
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
+#define show(arr) for (auto i: arr) {cout << i << ' ';} cout << "\n"
+#define all(v) (v).begin(),(v).end()
+#define rall(v) (v).rbegin(),(v).rend()
 #define pb push_back
 #define mp make_pair
 #define F first
