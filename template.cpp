@@ -16,6 +16,7 @@ const int INF = INT_MAX;
 
 // Macros
 #define show(arr) for (auto i: arr) {cout << i << ' ';} cout << "\n"
+#define inp(arr,n) for(int i=0;i<n;i++) {cin>> arr[i];}
 #define all(v) (v).begin(),(v).end()
 #define rall(v) (v).rbegin(),(v).rend()
 #define pb push_back
