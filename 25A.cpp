@@ -92,12 +92,12 @@ int main() {
         
         if(e>o && o!=0)
         {
-            cout<<oc;
+            cout<<oc+1;
             return 0;
         }
         if(o>e && e!=0)
         {
-            cout<<ec;
+            cout<<ec+1;
             return 0;
         }
 
