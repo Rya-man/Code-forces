@@ -53,6 +53,14 @@ ll power(ll x, ll y, ll m){
     return (y % 2 == 0) ? p : (x * p) % m;
 }
 
+ll sum_of_array(vi arr,int n)
+{
+    ll sum =0;
+    for(int i=0;i<n;i++)
+        sum+=arr[i];
+    return sum;
+}
+
 // Prime number check
 bool isPrime(int n) {
     if (n <= 1)
@@ -69,19 +77,42 @@ bool isPrime(int n) {
 
 int main() {
 
-    int n;
-    cin>>n;
-    vector<string> arr(n);
-    unordered_map<string,int> mp;
-    inp(arr,n);
-    for(int i=0;i<n;i++)
+    int nt;
+    cin>>nt;
+    while(nt>0)
     {
-        if(mp[arr[i]]==0){
-            cout<<"OK"<<endl;
+        int n;
+        cin>>n;
+        vi arr(n);
+        inp(arr,n);
+        vi m(3);
+        m[0]=m[1]=m[2]=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]>m[2])
+            {
+                m[0]=m[1];
+                m[1]=m[2];
+                m[2]=arr[i];
+                continue;
+            }
+            if(arr[i]>m[1])
+            {
+                m[0]=m[1];
+                m[1]=arr[i];
+                continue;
+            }
+            if(arr[i]>m[0])
+            {
+                m[0]=arr[i];
+            }
         }
+        if(sum_of_array(m,3)>99)
+        cout<<"YES"<<endl;
         else
-        cout<<arr[i]<<mp[arr[i]]<<endl;
-        mp[arr[i]]++;
+        cout<<"NO"<<endl;
+
+        nt--;
     }
 
     // Your code here

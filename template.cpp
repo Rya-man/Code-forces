@@ -23,7 +23,8 @@ const int INF = INT_MAX;
 #define mp make_pair
 #define F first
 #define S second
-
+#define yes cout<<"YES\n";
+#define no cout<<"NO\n";
 // Debugging
 #ifdef LOCAL_DEBUG
 #define debug(x) cerr << #x << " = " << x << endl;
