@@ -68,6 +68,13 @@ bool isPrime(int n) {
     return true;
 }
 
+ll sum_of_array(vi arr,int n)
+{
+    ll sum =0;
+    for(int i=0;i<n;i++)
+        sum+=arr[i];
+    return sum;
+}
 int main() {
 
 
