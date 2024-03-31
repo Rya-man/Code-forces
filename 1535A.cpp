@@ -75,9 +75,39 @@ ll sum_of_array(vi arr,int n)
         sum+=arr[i];
     return sum;
 }
+void result()
+{
+    vi arr(4);
+    inp(arr,4);
+    int m1=0,m2=3;
+    for(int i=0;i<4;i++)
+    {
+        if(arr[i]>arr[m2] && arr[i]<arr[m1])
+            m2=i;    
+        if(arr[i]>arr[m1])
+        {
+            m2 = m1;
+            m1 = i;
+        }
+            
+    }
+    if(m1==0 || m1==1)
+    {
+        if(m2==2||m2==3){
+            yes;
+            return;
+        }
+    }
+    if(m1==3 || m1==2)
+    {
+        if(m2==1 || m2 == 0){
+            yes;
+            return;
+        }
+    }
+    no;
 
-void result(){}
-
+}
 int main() {
 
     int tc;
