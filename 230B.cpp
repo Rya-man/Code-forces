@@ -78,17 +78,26 @@ ll sum_of_array(vi arr,int n)
 
 void result(){
 
-    int a;
+    long long int a;
     cin>>a;
-
-    if(sqrt(a)*sqrt(a)!=a)
+    if(a==1)
     {
         no;
         return;
     }
-    if(isPrime(sqrt(a)))
+    long long int x =sqrt(a);
+    if(x*x!=a)
+    {
+        no;
+        return;
+    }
+    if(isPrime(x))
     {
         yes;
+    }
+    else
+    {
+        no;
     }
 }
 

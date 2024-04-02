@@ -77,19 +77,14 @@ ll sum_of_array(vi arr,int n)
 }
 
 void result(){
+    int a,b;
+    cin>>a>>b;
 
-    int a;
-    cin>>a;
-
-    if(sqrt(a)*sqrt(a)!=a)
-    {
-        no;
+    if(a%b==0){
+        cout<<0<<'\n';
         return;
     }
-    if(isPrime(sqrt(a)))
-    {
-        yes;
-    }
+    cout<<b-(a%b)<<'\n';
 }
 
 int main() {
