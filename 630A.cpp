@@ -89,6 +89,7 @@ void result(){
         return;
     }
     cout<<25;
+    
 }
 
 int main() {
