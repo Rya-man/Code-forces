@@ -6,7 +6,7 @@ using namespace std;
 
 // Typedefs
 #define ll long long
-#define endl "\n"
+#define nl cout<<'\n';
 #define vi vector<int>
 #define pii pair<int, int>
 
@@ -76,34 +76,21 @@ ll sum_of_array(vi arr,int n)
     return sum;
 }
 
-int checknum(int a,int& count)
-{
-    if(a<10)
-    return count;
-
-    count++;
-    int x=0;
-
-    while(a)
-    {
-        x+=a%10;
-        a/=10;
-    }
-    return checknum(x,count);
-} 
 void result(){
-    int a;
-    cin>>a;
-    int count=0;
-    checknum(a,count);
-    cout<<count;
+    int islands;
+    int bridges;
+    cin>>islands>>bridges;
+    if(bridges>islands-2)
+        cout<<1;
+    else
+        cout<<islands;
+    nl
 }
 
 int main() {
 
-    int tc=1;
-    // cin>>tc;
-
+    int tc;
+    cin>>tc;
     while(tc)
     {
         result();
