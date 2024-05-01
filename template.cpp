@@ -6,7 +6,7 @@ using namespace std;
 
 // Typedefs
 #define ll long long
-#define endl "\n"
+#define nl cout<<'\n';
 #define vi vector<int>
 #define pii pair<int, int>
 
