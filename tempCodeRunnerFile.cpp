@@ -77,14 +77,15 @@ ll sum_of_array(vi arr,int n)
 }
 
 void result(){
-    int islands;
-    int bridges;
-    cin>>islands>>bridges;
-    if(bridges>islands-2)
-        cout<<1;
-    else
-        cout<<islands;
-    nl
+
+    string t;
+    cin>>t;
+    sort(all(t));
+    cout<<t<<'\n';
+    // string result="";
+
+    // vi a(27,0);
+
 }
 
 int main() {
