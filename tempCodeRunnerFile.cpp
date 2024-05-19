@@ -77,14 +77,24 @@ ll sum_of_array(vi arr,int n)
 }
 
 void result(){
-
-    string t;
-    cin>>t;
-    sort(all(t));
-    cout<<t<<'\n';
-    // string result="";
-
-    // vi a(27,0);
+    int n;
+    cin>>n;
+    vector<vector<ll int>> totaltime(n,vi(2));
+    pair<ll int,ll int> sum={0,0};
+    for(int i =0;i<n;++i)
+        inp(totaltime[i],2);
+    for(int i =0;i<n;++i)
+    {
+        sum.F+=totaltime[i][0];
+        sum.S+=totaltime[i][1];
+    }
+    vector<double> res(5,0);
+    res[0] = (double)(sum.F*60 +sum.S)/(3600*24*7);
+    res[1] =(double)(sum.F*60 +sum.S)/(3600*24);
+    res[2] =(double)(sum.F*60 +sum.S)/(3600);
+    res[3]=(double)(sum.F*60 +sum.S)/60;
+    res[4]=(double)(sum.F*60 +sum.S);
+    show(res);
 
 }
 
