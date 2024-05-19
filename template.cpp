@@ -188,8 +188,5 @@ int main() {
     {
         result();
     }
-
-    // Your code here
-
     return 0;
 }
