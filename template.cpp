@@ -40,7 +40,6 @@ typedef unordered_set<char> usc;
 const int MOD = 1e9 + 7;
 const int INF = INT_MAX;
 double EPS = 1e-9;
-int INF = 1000000005;
 long long INFF = 1000000000000000005LL;
 double PI = acos(-1);
 int dirx[8] = {-1,0,0,1,-1,-1,1,1};
@@ -167,7 +166,7 @@ inline int binsearch(vi arr,int a)
     int l=0,h=SIZE(arr)-1;
     while(l<=h)
     {
-        int m=l+(h-l)/2;
+        int m=l+(h-l)>>1;
         if(arr[m]==a)
             return m;
         else if(arr[m]>a)
