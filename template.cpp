@@ -166,7 +166,7 @@ inline int binsearch(vi arr,int a)
     int l=0,h=SIZE(arr)-1;
     while(l<=h)
     {
-        int m=l+(h-l)/2;
+        int m=l+(h-l)>>1;
         if(arr[m]==a)
             return m;
         else if(arr[m]>a)
