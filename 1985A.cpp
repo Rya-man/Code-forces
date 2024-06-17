@@ -177,7 +177,16 @@ inline int binsearch(vi arr,int a)
     return -1;
 }
 
-void result(){}
+void result(){
+    string a;
+    string b;
+    cin>>a;
+    cin>>b;
+    auto temp = a[0];
+    a[0]=b[0];
+    b[0]=temp;
+    cout<<a<<' '<<b<<'\n';
+}
 
 int main() {
 

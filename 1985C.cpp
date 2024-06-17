@@ -177,7 +177,32 @@ inline int binsearch(vi arr,int a)
     return -1;
 }
 
-void result(){}
+void result(){
+    int n;
+    cin>>n;
+    vector<long long int> nums(n);
+    inp(nums,n);
+    LL i =0;
+    LL psum=0;
+    LL numof=0;
+    LL bg=0;
+    while(i<n)
+    {
+        if(nums[i]>bg)
+        {
+            psum+=bg;
+            bg = nums[i];
+        }
+        else
+        {
+            psum+=nums[i];
+        }
+        if(psum==bg)
+        numof++;
+        i++;
+    }
+    cout<<numof<<'\n';
+}
 
 int main() {
 

@@ -177,7 +177,15 @@ inline int binsearch(vi arr,int a)
     return -1;
 }
 
-void result(){}
+void result(){
+    int n;
+    cin>>n;
+    if(n==2 or n>3)
+    cout<<2;
+    else
+    cout<<3;
+    cout<<'\n';
+}
 
 int main() {
 
