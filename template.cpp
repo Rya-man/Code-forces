@@ -15,9 +15,9 @@ typedef vector<vi> vvi;
 typedef vector<pii> vii;
 typedef vector<LL> vl;
 typedef vector<vl> vvl;
-#define ump unordered_map;
-#define ust unordered_set;
-#define pq priority_queue;
+#define ump unordered_map
+#define ust unordered_set
+#define pq priority_queue
 typedef unordered_map<int,int> umpii;
 typedef unordered_map<char,int> umpci;
 typedef unordered_map<int,bool> umpib;
