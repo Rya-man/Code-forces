@@ -44,7 +44,7 @@ long long INFF = 1000000000000000005LL;
 double PI = acos(-1);
 int dirx[8] = {-1,0,0,1,-1,-1,1,1};
 int diry[8] = {0,1,-1,0,-1,1,-1,1};
-
+vi sieve;
 // Macros
 #define show(arr) for (auto i: arr) {cout << i << ' ';} cout << "\n"
 #define inp(arr,n) for(int i=0;i<n;i++) {cin>> arr[i];}
@@ -113,6 +113,18 @@ inline bool isPrime(int n) {
             return false;
     return true;
 }
+
+auto sievef = [](){
+    vector<bool> s(1e5,true);
+    for(int i =2;i<1e9;++i)
+    {
+        if(s[i])
+        sieve.push_back(i);
+        for(int j = 2*i;j<1e9;++j)
+            s[j]=false;
+    }
+    return 0;
+}();
 
 //sum of array
 inline LL sum_of_array(vi arr,int n)
