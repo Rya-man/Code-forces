@@ -1,3 +1,6 @@
+#ifndef UTILITIES_H
+#define UTILITIES_H
+
 #include <bits/stdc++.h>
 #pragma GCC optimize("O3,unroll-loops")
 #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
@@ -41,8 +44,8 @@ const int INF = INT_MAX;
 double EPS = 1e-9;
 long long INFF = 1000000000000000005LL;
 double PI = acos(-1);
-int dirx[8] = {-1,0,0,1,-1,-1,1,1};
-int diry[8] = {0,1,-1,0,-1,1,-1,1};
+extern int dirx[8];
+extern int diry[8];
 
 // Macros
 #define show(arr) for (auto i: arr) {cout << i << ' ';} cout << "\n"
@@ -84,113 +87,18 @@ auto initialize = []() {
     return 0;
 }();
 
-// Modular arithmetic
-inline LL mod(LL a, LL m) {
-    return (a % m + m) % m;
-}
+// Function declarations
+LL mod(LL a, LL m);
+LL power(LL x, LL y, LL m);
+bool isPrime(int n);
+LL sum_of_array(const vi& arr);
+string IntToString(LL a);
+LL StringToInt(const string& a);
+string GetString();
+string uppercase(string s);
+string lowercase(string s);
+void OPEN(const string& s);
+int binsearch(const vi& arr, int a);
+vi sieve(int n);
 
-// Power function with modulo
-inline LL power(LL x, LL y, LL m){
-    if (y == 0)
-        return 1;
-    LL p = power(x, y / 2, m) % m;
-    p = (p * p) % m;
-    return (y % 2 == 0) ? p : (x * p) % m;
-}
-
-// Prime number check
-inline bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    if (n <= 3)
-        return true;
-    if (n % 2 == 0 || n % 3 == 0)
-        return false;
-    for (int i = 5; i * i <= n; i += 6)
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
-    return true;
-}
-
-// Sum of array
-inline LL sum_of_array(const vi& arr) {
-    LL sum = 0;
-    for(int i : arr)
-        sum += i;
-    return sum;
-}
-
-inline string IntToString(LL a) {
-    return to_string(a);
-}
-
-inline LL StringToInt(const string& a) {
-    return stoll(a);
-}
-
-inline string GetString() {
-    string s;
-    cin >> s;
-    return s;
-}
-
-inline string uppercase(string s) {
-    for (char &c : s) if (c >= 'a' && c <= 'z') c -= 'a' - 'A';
-    return s;
-}
-
-inline string lowercase(string s) {
-    for (char &c : s) if (c >= 'A' && c <= 'Z') c += 'a' - 'A';
-    return s;
-}
-
-inline void OPEN (const string& s) {
-    #ifndef TESTING
-    freopen((s + ".in").c_str(), "r", stdin);
-    freopen((s + ".out").c_str(), "w", stdout);
-    #endif
-}
-
-inline int binsearch(const vi& arr, int a) {
-    int l = 0, h = SIZE(arr) - 1;
-    while(l <= h) {
-        int m = l + (h - l) / 2;
-        if(arr[m] == a)
-            return m;
-        else if(arr[m] > a)
-            h = m - 1;
-        else
-            l = m + 1;
-    }
-    return -1;
-}
-
-// Sieve of Eratosthenes
-vi sieve(int n) {//sieve(31622)
-    vector<bool> is_prime(n + 1, true);
-    is_prime[0] = is_prime[1] = false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (is_prime[i]) {
-            for (int j = i * i; j <= n; j += i)
-                is_prime[j] = false;
-        }
-    }
-    vi primes;
-    for (int i = 2; i <= n; ++i) {
-        if (is_prime[i]) primes.push_back(i);
-    }
-    return primes;
-}
-
-void result() {
-    // Placeholder for result processing function
-}
-
-int main() {
-    int tc;
-    cin >> tc;
-    TC(tc) {
-        result();
-    }
-    return 0;
-}
+#endif // UTILITIES_H
