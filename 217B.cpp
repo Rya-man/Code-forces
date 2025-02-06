@@ -37,8 +37,8 @@ typedef unordered_set<char> usc;
 
 // Constants
 const int MOD = 1e9 + 7;
-const int INF2 = 0x3f3f3f3f;
 const int INF = INT_MAX;
+const int INF2 = 0x3f3f3f3f;
 double EPS = 1e-9;
 long long INFF = 1000000000000000005LL;
 double PI = acos(-1);
@@ -219,13 +219,60 @@ long long fib(int n) {
     } };
     return matpow(base, n).mat[0][1];
 }
+int n,m;
+const int N =  1e6+100;
+char ans[N],temp[N];
+int mmin=INF2;
+void helper(int a,int b)
+{
+    int l = 0;
+    while(a>=1&&b>=1&&a!=b)
+    {
+        if(b>a)
+        {
+            temp[l++]='B';
+            b-=a;
+        }
+        else
+        {
+            temp[l++]='T';
+            a-=b;
+        }
+    }
+    temp[l++] = 'T';
+    if(l!=n or a!=1)
+        return;
+    reverse(temp,temp+l);
+    int res = 0;
+    for(int i=1;i<l;++i)
+        res+=temp[i]==temp[i-1];
+    if(res<mmin)
+    {
+        mmin = res;
+        for(int i =0;i<l;++i)
+        ans[i]=temp[i];
+
+        ans[l]=0;
+    }
+}
 void result() {
-    // Placeholder for result processing function
+
+    cin>>n>>m;
+    for(int i =1;i<=m;++i)
+    {
+        helper(i,m);
+        helper(m,i);
+    }
+    if(mmin==INF2){
+        cout<<"IMPOSSIBLE";return;
+    }
+    cout<<mmin<<"\n"<<ans<<"\n";
+
 }
 
 int main() {
-    int tc;
-    cin >> tc;
+    int tc=1;
+    // cin >> tc;
     TC(tc) {
         result();
     }
