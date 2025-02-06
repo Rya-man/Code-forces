@@ -115,7 +115,7 @@ inline bool isPrime(int n) {
 // Sum of array
 inline LL sum_of_array(const vi& arr) {
     LL sum = 0;
-    for(int i : arr)N
+    for(int i : arr)
         sum += i;
     return sum;
 }
