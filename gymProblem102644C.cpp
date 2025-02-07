@@ -190,7 +190,7 @@ struct matrix {
           for (int j = 0; j < 2; j++) {
               c.mat[i][j] = 0;
               for (int k = 0; k < 2; k++) {
-                  c.mat[i][j] += a.mat[i][k] * b.mat[k][j];
+                  c.mat[i][j] += mod(mod(a.mat[i][k],MOD) * mod(b.mat[k][j],MOD),MOD);
               }
           }
         }
@@ -221,6 +221,9 @@ long long fib(int n) {
 }
 void result() {
     // Placeholder for result processing function
+    LL n;
+    cin>>n;
+    cout<<fib(n);
 }
 
 int main() {
