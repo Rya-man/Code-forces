@@ -182,6 +182,8 @@ vi sieve(int n) {//sieve(31622)
     }
     return primes;
 }
+
+// Matrix struct (used in some solutions)
 struct matrix {
     long long mat[2][2];
     matrix friend operator *(const matrix &a, const matrix &b){
@@ -198,20 +200,22 @@ struct matrix {
     }
 };
 
+// Fast exponentiation for matrix
 matrix matpow(matrix base, long long n) {
     matrix ans{ {
       {1, 0},
       {0, 1}
     } };
     while (n) {
-        if(n&1)
-            ans = ans*base;
-        base = base*base;
+        if(n & 1)
+            ans = ans * base;
+        base = base * base;
         n >>= 1;
     }
     return ans;
 }
 
+// Fibonacci via matrix exponentiation
 long long fib(int n) {
     matrix base{ {
       {1, 1},
@@ -219,23 +223,90 @@ long long fib(int n) {
     } };
     return matpow(base, n).mat[0][1];
 }
-void result() {
-    // Placeholder for result processing function
-    vector<vector<int>> v(7,vector<int>(7,0));
-    v[0][0] = 1;
-    for(int i =0;i<7;++i)
-    {
-        v[i][0]=1;
-        v[0][i]=1;
+
+// Digit-by-digit addition of large strings
+string stringsum(const string &a, const string &b) {
+    string A(a.rbegin(), a.rend()), B(b.rbegin(), b.rend());
+    string result;
+    int carry = 0;
+    int n = max(A.size(), B.size());
+    
+    for (int i = 0; i < n || carry; ++i) {
+        int x = (i < (int)A.size()) ? A[i] - '0' : 0;
+        int y = (i < (int)B.size()) ? B[i] - '0' : 0;
+        
+        int sum = x + y + carry;
+        carry   = sum / 10;
+        sum    %= 10;
+        
+        result.push_back(char(sum + '0'));
     }
-    for(int i =1;i<7;++i)
-    {
-        for(int j=1;j<7;++j)
-        {
-            v[i][j] = v[i-1][j]+v[i][j-1];
+    reverse(result.begin(), result.end());
+    return result;
+}
+
+bool lessThanNumeric(const string &a, const string &b) {
+    if (a.size() < b.size()) return true;
+    if (a.size() > b.size()) return false;
+    return a < b;
+}
+
+void result() {
+    LL l;
+    cin >> l;  // length of the number
+    string s;
+    cin >> s;  // the large number itself
+
+    // We'll look around the midpoint for valid splits
+    // because we want to keep the sum as small as possible
+    int mid = l / 2;
+
+    // Candidate splits
+    int L = -1, R = -1;
+
+    // Search left from mid for a valid position
+    // We ensure the right substring doesn't start with '0'
+    // and that left substring is non-empty (i >= 1).
+    for (int i = mid; i >= 1; i--) {
+        if (s[i] != '0') {
+            L = i;
+            break;
         }
     }
-    cout<<v[6][6];
+
+    // Search right from mid+1 for a valid position
+    // Must ensure right substring is not empty (i < l)
+    // and doesn't start with '0'.
+    for (int i = mid + 1; i < (int)l; i++) {
+        if (s[i] != '0') {
+            R = i;
+            break;
+        }
+    }
+
+    // We'll compute sums for each valid split
+    auto splitAndSum = [&](int idx) {
+        string leftPart  = s.substr(0, idx);
+        string rightPart = s.substr(idx);
+        return stringsum(leftPart, rightPart);
+    };
+
+    string sumL, sumR;
+    if (L != -1) sumL = splitAndSum(L);
+    if (R != -1) sumR = splitAndSum(R);
+
+    // Compare whichever sums are valid and pick the smallest numerically
+    if (!sumL.empty() && !sumR.empty()) {
+        if (lessThanNumeric(sumL, sumR)) cout << sumL << "\n";
+        else                             cout << sumR << "\n";
+    } 
+    else if (!sumL.empty()) {
+        cout << sumL << "\n";
+    } 
+    else {
+        // sumR must be valid if sumL is empty
+        cout << sumR << "\n";
+    }
 }
 
 int main() {
